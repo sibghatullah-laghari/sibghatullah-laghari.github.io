@@ -1,0 +1,67 @@
+import { d as createAstro, c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_D57DNOQO.mjs';
+import 'kleur/colors';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_C_UA5XDo.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Astro = createAstro("https://sibghatullah-laghari.github.io");
+const $$Projects = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Projects;
+  const projects = [
+    {
+      title: "CCTRS \u2014 Carbon Contribution & Reward Tracking System",
+      desc: "A backend system that tracks users' carbon-reducing activities, calculates contribution scores, and issues rewards. Features multi-role access and a fully documented REST API.",
+      long: "Built with a clean layered architecture: REST controllers, service layer with business logic, JPA repositories connected to MySQL. Full JWT authentication with USER and ADMIN roles. Includes contribution logging, reward calculation engine, and admin dashboard APIs.",
+      tech: ["Java", "Spring Boot", "Spring Security", "JWT", "MySQL", "JPA/Hibernate", "Maven", "REST APIs"],
+      github: "https://github.com/sibghatullah-laghari",
+      status: "Completed",
+      featured: True
+    },
+    {
+      title: "User Management REST API",
+      desc: "A production-ready user management backend with registration, login, JWT authentication, profile management, and role-based endpoint protection.",
+      long: "Implements the full authentication lifecycle: registration with BCrypt hashing, JWT issuance on login, token-based authorization on protected routes. ADMIN can manage all users; USER can manage their own profile.",
+      tech: ["Spring Boot", "Spring Security", "JWT", "BCrypt", "MySQL", "JPA", "Maven"],
+      github: "https://github.com/sibghatullah-laghari",
+      status: "Completed",
+      featured: False
+    },
+    {
+      title: "Complaint & Case Tracking System",
+      desc: "A backend for managing citizen complaints and case workflows. Cases can be submitted, assigned, updated, and resolved through a structured REST API with role-based access.",
+      long: "Designed for multi-role workflows: citizens submit complaints, moderators process and assign them, admins oversee all. Features case status tracking, audit logs, and a relational database schema designed for query efficiency.",
+      tech: ["Spring Boot", "Spring Security", "MySQL", "JPA", "REST APIs", "Maven"],
+      github: "https://github.com/sibghatullah-laghari",
+      status: "Completed",
+      featured: False
+    },
+    {
+      title: "Portfolio Website",
+      desc: "This portfolio \u2014 built with Astro (static site generator) and Tailwind CSS. Zero backend, zero CMS, deployed to GitHub Pages. Fast, accessible, responsive.",
+      long: "Component-based Astro architecture with global CSS design system. Deployed via GitHub Actions to GitHub Pages. Fully static \u2014 no JavaScript frameworks, just clean HTML + CSS.",
+      tech: ["Astro", "Tailwind CSS", "GitHub Pages", "HTML5", "CSS3"],
+      github: "https://github.com/sibghatullah-laghari/sibghatullah-laghari.github.io",
+      status: "Live",
+      featured: False
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Projects \u2014 Sibghatullah Laghari" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="sec"> <div class="wrap"> <!-- Header --> <div style="margin-bottom:3.5rem;"> <span class="s-eyebrow">Portfolio</span> <h1 class="s-title">Projects</h1> <p class="s-desc">Backend systems I've designed, built, and deployed &mdash; from authentication engines to tracking platforms.</p> </div> <!-- Featured Project --> ${projects.filter((p) => p.featured).map((p) => renderTemplate`<div class="card" style="margin-bottom:2rem;border-color:rgba(99,102,241,.3);background:linear-gradient(135deg,var(--card),var(--card2));position:relative;overflow:hidden;"> <div style="position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,.06) 0%,transparent 70%);pointer-events:none;"></div> <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;"> <div> <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;"> <span class="badge badge-green" style="font-size:.65rem;">Featured Project</span> <span class="badge badge-indigo" style="font-size:.65rem;">${p.status}</span> </div> <h2 style="font-size:1.3rem;font-weight:800;line-height:1.3;">${p.title}</h2> </div> <a${addAttribute(p.github, "href")} target="_blank" rel="noopener" class="btn btn-outline btn-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+View on GitHub
+</a> </div> <p style="font-size:.9rem;color:var(--txt2);line-height:1.8;margin-bottom:.75rem;">${p.desc}</p> <p style="font-size:.875rem;color:var(--txt3);line-height:1.75;margin-bottom:1.5rem;">${p.long}</p> <div style="display:flex;flex-wrap:wrap;gap:.4rem;"> ${p.tech.map((t) => renderTemplate`<span class="badge badge-indigo">${t}</span>`)} </div> </div>`)} <!-- Other Projects Grid --> <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;"> ${projects.filter((p) => !p.featured).map((p) => renderTemplate`<div class="card" style="display:flex;flex-direction:column;gap:.875rem;"> <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;"> <div style="flex:1;"> <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;"> <span${addAttribute(`badge ${p.status === "Live" ? "badge-green" : "badge-indigo"}`, "class")} style="font-size:.65rem;">${p.status}</span> </div> <h3 style="font-size:.975rem;font-weight:700;line-height:1.4;">${p.title}</h3> </div> <a${addAttribute(p.github, "href")} target="_blank" rel="noopener" aria-label="GitHub" style="color:var(--txt3);transition:color .2s;flex-shrink:0;margin-top:.25rem;" onmouseover="this.style.color='var(--accent2)'" onmouseout="this.style.color='var(--txt3)'"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg> </a> </div> <p style="font-size:.875rem;color:var(--txt2);line-height:1.75;flex:1;">${p.desc}</p> <div style="display:flex;flex-wrap:wrap;gap:.35rem;"> ${p.tech.map((t) => renderTemplate`<span class="badge badge-indigo" style="font-size:.65rem;">${t}</span>`)} </div> </div>`)} </div> <!-- GitHub CTA --> <div style="text-align:center;margin-top:3rem;padding:2rem;border:1px dashed var(--border);border-radius:1rem;"> <p style="color:var(--txt2);font-size:.9rem;margin-bottom:1rem;">More projects and code available on GitHub</p> <a href="https://github.com/sibghatullah-laghari" target="_blank" rel="noopener" class="btn btn-outline"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+github.com/sibghatullah-laghari
+</a> </div> </div> </section> ` })}`;
+}, "C:/Users/sibla/Downloads/sibghatullah-laghari.github.io/src/pages/projects.astro", void 0);
+
+const $$file = "C:/Users/sibla/Downloads/sibghatullah-laghari.github.io/src/pages/projects.astro";
+const $$url = "/projects";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Projects,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
