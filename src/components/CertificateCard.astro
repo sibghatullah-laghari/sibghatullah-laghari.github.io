@@ -1,0 +1,47 @@
+---
+import type { Certification } from '../data/certifications';
+
+export interface Props {
+  cert: Certification;
+}
+
+const { cert } = Astro.props;
+const hasVerify = Boolean(cert.verificationUrl);
+---
+<article class="card cert-card" style="display:flex;flex-direction:column;gap:1rem;height:100%;">
+  <div>
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:.35rem;line-height:1.35;">{cert.name}</h3>
+    <p style="font-size:.875rem;color:var(--accent2);font-weight:600;">{cert.provider}</p>
+    {cert.date && (
+      <p style="font-size:.75rem;color:var(--txt3);margin-top:.35rem;">{cert.date}</p>
+    )}
+  </div>
+  <div style="flex:1;">
+    <p style="font-size:.72rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;">Skills Learned</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.35rem;">
+      {cert.skillsLearned.map(skill => (
+        <span class="badge badge-neutral" style="font-size:.65rem;">{skill}</span>
+      ))}
+    </div>
+  </div>
+  {hasVerify ? (
+    <a
+      href={cert.verificationUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-outline btn-sm"
+      style="width:100%;justify-content:center;margin-top:auto;"
+    >
+      Verify Certificate
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+    </a>
+  ) : (
+    <span
+      class="btn btn-outline btn-sm"
+      style="width:100%;justify-content:center;margin-top:auto;opacity:.45;cursor:not-allowed;pointer-events:none;"
+      aria-disabled="true"
+    >
+      Verification link pending
+    </span>
+  )}
+</article>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProjectCaseStudy from '../components/ProjectCaseStudy.astro';
+import { allProjects, currentlyBuilding } from '../data/projects';
+---
+<BaseLayout
+  title="Projects — Sibghatullah Laghari | Backend Case Studies"
+  description="Backend engineering case studies: CCTRS, MediConnect, ULSM, and more. REST APIs, JWT authentication, database design, and Spring Boot architecture."
+>
+
+<section class="sec">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="Engineering Portfolio"
+      title="Project Case Studies"
+      description="Problem → Solution → Architecture. Backend systems built with Java, Spring Boot, and production-minded engineering practices."
+    />
+
+    <div style="margin-bottom:3rem;">
+      <h2 style="font-size:1.1rem;font-weight:700;color:var(--accent2);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em;">Flagship Systems</h2>
+      {allProjects.filter(p => p.priority <= 3).map(project => (
+        <ProjectCaseStudy project={project} />
+      ))}
+    </div>
+
+    <div class="card" style="border-style:dashed;border-color:rgba(251,191,36,.3);margin-bottom:3rem;padding:2rem;">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;">
+        <div>
+          <span class="badge badge-yellow" style="font-size:.65rem;margin-bottom:.5rem;">Currently Building</span>
+          <h3 style="font-size:1.15rem;font-weight:700;">{currentlyBuilding.title}</h3>
+          <p style="font-size:.875rem;color:var(--txt2);margin-top:.5rem;max-width:32rem;line-height:1.7;">{currentlyBuilding.description}</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:.35rem;">
+          {currentlyBuilding.focus.map(f => <span class="badge badge-indigo" style="font-size:.65rem;">{f}</span>)}
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 style="font-size:1.1rem;font-weight:700;color:var(--txt2);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em;">Additional Projects</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem;">
+        {allProjects.filter(p => p.priority > 3).map(project => (
+          <ProjectCaseStudy project={project} compact={true} />
+        ))}
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;padding:2rem;border:1px dashed var(--border);border-radius:1rem;">
+      <p style="color:var(--txt2);font-size:.9rem;margin-bottom:1rem;">Full source code and additional work on GitHub</p>
+      <a href="https://github.com/sibghatullah-laghari" target="_blank" rel="noopener" class="btn btn-outline">
+        github.com/sibghatullah-laghari
+      </a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>

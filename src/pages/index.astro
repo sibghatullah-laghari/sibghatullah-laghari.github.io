@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SkillCategory from '../components/SkillCategory.astro';
+import CertificateCard from '../components/CertificateCard.astro';
+import ProjectCaseStudy from '../components/ProjectCaseStudy.astro';
+import { profile, aboutSummary, openSource } from '../data/profile';
+import { skillCategories } from '../data/skills';
+import { certifications } from '../data/certifications';
+import { flagshipProjects, currentlyBuilding } from '../data/projects';
+---
+<BaseLayout
+  title="Sibghatullah Laghari — Backend Engineer | Java · Spring Boot"
+  description="Backend Engineer building secure REST APIs, authentication systems, and database-driven services with Java and Spring Boot. Open to internships, full-time, and freelance."
+>
+
+<!-- HERO -->
+<section class="sec" style="min-height:90vh;display:flex;align-items:center;padding-top:4rem;padding-bottom:4rem;background:radial-gradient(ellipse 80% 55% at 50% -10%,rgba(99,102,241,.16) 0%,transparent 65%),var(--bg);">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="hero-grid">
+
+      <div class="animate-in">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:1.75rem;">
+          <span class="badge badge-green" style="font-size:.72rem;">
+            <span class="pulse-dot" style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+            Open to Opportunities — Backend Engineer
+          </span>
+        </div>
+
+        <h1 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem;">
+          I build backend systems<br/>
+          that <span class="gt">solve real problems.</span>
+        </h1>
+
+        <p style="font-size:1.05rem;font-weight:600;color:var(--accent2);margin-bottom:1.25rem;">
+          {profile.name} · Java · Spring Boot · REST APIs · Security
+        </p>
+
+        <p style="font-size:1rem;color:var(--txt2);line-height:1.8;margin-bottom:2rem;max-width:32rem;">
+          Backend engineer specializing in authentication, API design, and database architecture.
+          I ship Spring Boot services with JWT security, RBAC, and clean layered code — focused on
+          software that works in production, not demos.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:.875rem;margin-bottom:2.5rem;">
+          <a href="/projects" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            View Projects
+          </a>
+          <a href={profile.resumePath} download class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Resume
+          </a>
+          <a href="/contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+        <div class="stats-bar">
+          {profile.stats.map((stat, i) => (
+            <div class={`stat-item ${i > 0 ? 'stat-divider' : ''}`}>
+              <div class="stat-value gt2">{stat.value}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="animate-float hide-mobile" style="animation-delay:.2s;">
+        <div class="terminal">
+          <div class="tbar">
+            <div class="dr"></div><div class="dy"></div><div class="dg"></div>
+            <span class="tname">BackendEngineer.java</span>
+          </div>
+          <div class="tbody">
+            <div class="tl"><span class="c1">// Production backend profile</span></div>
+            <div class="tl">&nbsp;</div>
+            <div class="tl"><span class="c2">public class</span>&nbsp;<span class="c5">BackendEngineer</span>&nbsp;<span style="color:#8892a4;">&#123;</span></div>
+            <div class="tl">&nbsp;&nbsp;<span class="c2">String</span>&nbsp;<span class="c4">name</span>&nbsp;= <span class="c3">"Sibghatullah Laghari"</span>;</div>
+            <div class="tl">&nbsp;&nbsp;<span class="c2">String</span>&nbsp;<span class="c4">role</span>&nbsp;= <span class="c3">"Backend Engineer"</span>;</div>
+            <div class="tl">&nbsp;&nbsp;<span class="c2">String</span>&nbsp;<span class="c4">focus</span> = <span class="c3">"APIs + Security"</span>;</div>
+            <div class="tl">&nbsp;&nbsp;<span class="c2">boolean</span>&nbsp;<span class="c4">openSource</span> = <span class="c6">true</span>;</div>
+            <div class="tl">&nbsp;</div>
+            <div class="tl">&nbsp;&nbsp;<span class="c2">String[]</span>&nbsp;<span class="c4">stack</span> = <span style="color:#8892a4;">&#123;</span></div>
+            <div class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c3">"Spring Boot"</span>, <span class="c3">"JWT"</span>, <span class="c3">"MySQL"</span></div>
+            <div class="tl">&nbsp;&nbsp;<span style="color:#8892a4;">&#125;</span>;</div>
+            <div class="tl"><span style="color:#8892a4;">&#125;</span></div>
+            <div class="tl">&nbsp;</div>
+            <div class="tl"><span class="c1">$</span>&nbsp;<span class="c6">mvn spring-boot:run</span>&nbsp;<span class="cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>@media(max-width:900px){.hero-grid{grid-template-columns:1fr!important;}}
+  .stats-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:0;padding:1.25rem 1.5rem;background:var(--card2);border:1px solid var(--border);border-radius:.75rem;}
+  .stat-item{text-align:center;flex:1;min-width:4.5rem;padding:0 1rem;}
+  .stat-divider{border-left:1px solid var(--border);}
+  .stat-value{font-size:1.5rem;font-weight:900;}
+  .stat-label{font-size:.72rem;color:var(--txt3);margin-top:.15rem;font-weight:500;}
+  @media(max-width:480px){.stat-divider{border-left:none;border-top:1px solid var(--border);padding-top:1rem;margin-top:.5rem;width:100%;}}</style>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<section class="sec sec-alt" id="about">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="About"
+      title="Engineering-focused. Product-minded."
+      description="I approach software as an engineer — understand the problem, design the system, ship the solution."
+    />
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:start;" class="about-main">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        {aboutSummary.map(p => (
+          <p style="font-size:.95rem;color:var(--txt2);line-height:1.8;">{p}</p>
+        ))}
+      </div>
+      <div class="card" style="border-color:rgba(99,102,241,.2);">
+        <h3 style="font-size:.85rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">At a Glance</h3>
+        <dl style="display:flex;flex-direction:column;gap:.75rem;">
+          {[
+            { k: 'Role', v: profile.title },
+            { k: 'Education', v: `${profile.education.degree} · CGPA ${profile.education.cgpa}` },
+            { k: 'University', v: profile.education.university },
+            { k: 'Location', v: profile.location },
+            { k: 'Availability', v: profile.availability.slice(0, 3).join(' · ') },
+          ].map(row => (
+            <div style="display:flex;justify-content:space-between;gap:1rem;font-size:.855rem;border-bottom:1px solid var(--border);padding-bottom:.75rem;">
+              <dt style="color:var(--txt3);font-weight:500;">{row.k}</dt>
+              <dd style="color:var(--txt);font-weight:600;text-align:right;">{row.v}</dd>
+            </div>
+          ))}
+        </dl>
+        <a href="/experience" class="btn btn-outline btn-sm" style="margin-top:1.25rem;width:100%;justify-content:center;">View Experience</a>
+      </div>
+    </div>
+  </div>
+  <style>@media(max-width:768px){.about-main{grid-template-columns:1fr!important;}}</style>
+</section>
+
+<hr class="divider" />
+
+<!-- FEATURED PROJECTS PREVIEW -->
+<section class="sec" id="projects-preview">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="Case Studies"
+      title="Systems I've Built"
+      description="Engineering depth over UI polish — each project documents problem, architecture, and what I learned."
+    />
+    {flagshipProjects.map(project => (
+      <ProjectCaseStudy project={project} />
+    ))}
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="/projects" class="btn btn-primary">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CURRENTLY BUILDING -->
+<section class="sec sec-alt" id="building">
+  <div class="wrap">
+    <div class="card" style="border-style:dashed;border-color:rgba(99,102,241,.35);background:linear-gradient(135deg,var(--card),rgba(99,102,241,.04));text-align:center;padding:2.5rem;">
+      <span class="badge badge-yellow" style="font-size:.7rem;margin-bottom:1rem;">Currently Building</span>
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:.75rem;">{currentlyBuilding.title}</h2>
+      <p style="font-size:.95rem;color:var(--txt2);max-width:36rem;margin:0 auto 1.25rem;line-height:1.75;">{currentlyBuilding.description}</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;">
+        {currentlyBuilding.focus.map(f => <span class="badge badge-indigo">{f}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TECH STACK -->
+<section class="sec" id="skills">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="Tech Stack"
+      title="Tools & Technologies"
+      description="Organized by what I use daily, what secures my APIs, and what I'm actively learning."
+    />
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
+      {skillCategories.map(cat => <SkillCategory category={cat} />)}
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- OPEN SOURCE -->
+<section class="sec sec-alt" id="opensource">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:center;" class="oss-grid">
+      <div>
+        <span class="s-eyebrow">Collaboration</span>
+        <h2 class="s-title">{openSource.title}</h2>
+        <p class="s-desc">{openSource.description}</p>
+        <a href={profile.github} target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:1.5rem;">
+          View GitHub Profile
+        </a>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem;">
+        {openSource.points.map(point => (
+          <li class="card" style="padding:1.25rem;display:flex;align-items:flex-start;gap:.75rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:var(--accent);flex-shrink:0;margin-top:.1rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span style="font-size:.9rem;color:var(--txt2);line-height:1.65;">{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <style>@media(max-width:768px){.oss-grid{grid-template-columns:1fr!important;}}</style>
+</section>
+
+<hr class="divider" />
+
+<!-- CERTIFICATIONS -->
+<section class="sec" id="certifications">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="Credentials"
+      title="Certifications"
+      description="Professional certifications with verifiable credentials — links added as they become available."
+    />
+    {certifications.length > 0 ? (
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;">
+        {certifications.map(cert => <CertificateCard cert={cert} />)}
+      </div>
+    ) : (
+      <div style="padding:2rem;border:1px dashed var(--border);border-radius:1rem;text-align:center;">
+        <p style="font-size:.9rem;color:var(--txt2);margin-bottom:.5rem;">Certification cards will appear here.</p>
+        <p style="font-size:.8rem;color:var(--txt3);">Each card supports name, provider, skills learned, and a clickable verification URL.</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="sec sec-compact" style="background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(99,102,241,.12) 0%,transparent 70%),var(--bg);">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:.75rem;">Why interview me?</h2>
+    <p style="font-size:.95rem;color:var(--txt2);max-width:36rem;margin:0 auto 1.75rem;line-height:1.75;">
+      I build real backend systems with Java and Spring Boot. My projects prove API design, security, and database skills.
+      I'm ready to contribute from day one — internship, junior role, or freelance.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.875rem;">
+      <a href="/contact" class="btn btn-primary">Get In Touch</a>
+      <a href="/resume" class="btn btn-outline">View Resume</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
