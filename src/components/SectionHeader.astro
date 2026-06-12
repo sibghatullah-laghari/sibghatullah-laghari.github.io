@@ -1,0 +1,17 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  centered?: boolean;
+}
+
+const { eyebrow, title, description, centered = false } = Astro.props;
+---
+<div style={`margin-bottom:3rem;${centered ? 'text-align:center;max-width:42rem;margin-left:auto;margin-right:auto;' : ''}`}>
+  {eyebrow && <span class="s-eyebrow">{eyebrow}</span>}
+  <h2 class="s-title">{title}</h2>
+  {description && (
+    <p class="s-desc" style={centered ? 'margin-left:auto;margin-right:auto;' : ''}>{description}</p>
+  )}
+</div>

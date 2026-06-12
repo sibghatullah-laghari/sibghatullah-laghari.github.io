@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { experienceItems } from '../data/profile';
+---
+<BaseLayout
+  title="Experience — Sibghatullah Laghari | Backend Engineer"
+  description="Backend engineering experience: REST APIs, JWT authentication, database design, and Spring Boot systems. Freelance projects and software engineering education."
+>
+
+<section class="sec" style="background:radial-gradient(ellipse 60% 40% at 20% 0,rgba(99,102,241,.1) 0%,transparent 60%),var(--bg);">
+  <div class="wrap">
+    <SectionHeader
+      eyebrow="Background"
+      title="Experience"
+      description="Building backend systems in production-style projects — not classroom exercises."
+    />
+
+    <div style="display:flex;flex-direction:column;gap:0;">
+      {experienceItems.map((item, index) => (
+        <div style="display:flex;gap:2rem;position:relative;padding-bottom:3rem;" class="tl-item">
+          <div style="position:relative;flex-shrink:0;width:2.25rem;">
+            <div class="tl-dot" style={index > 0 ? 'background:linear-gradient(135deg,#8b5cf6,#7c3aed);' : ''}>
+              {item.icon === 'code' ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="#fff"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="#fff"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              )}
+            </div>
+            {index < experienceItems.length - 1 && (
+              <div class="tl-line" style={index > 0 ? 'background:linear-gradient(to bottom,#8b5cf6,rgba(99,102,241,.05));' : ''}></div>
+            )}
+          </div>
+          <div class="card" style="flex:1;">
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:.3rem;">{item.role}</h3>
+                <p style="font-size:.9rem;color:var(--accent2);font-weight:600;">{item.org}</p>
+              </div>
+              <div style="text-align:right;flex-shrink:0;">
+                <span class="badge badge-indigo" style="font-size:.72rem;">{item.period}</span>
+                <p style="font-size:.75rem;color:var(--txt3);margin-top:.4rem;">{item.location}</p>
+              </div>
+            </div>
+            <p style="font-size:.9rem;color:var(--txt2);margin-bottom:1.25rem;line-height:1.8;">{item.summary}</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;">
+              {item.bullets.map(bullet => (
+                <li style="display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;color:var(--txt2);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={`flex-shrink:0;margin-top:.2rem;color:${index === 0 ? 'var(--accent)' : '#8b5cf6'};`}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;">
+              {item.tech.map(t => (
+                <span class={`badge ${index === 0 ? 'badge-indigo' : 'badge-neutral'}`}>{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="/projects" class="btn btn-primary">See Project Proof</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>

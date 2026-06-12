@@ -1,0 +1,86 @@
+---
+export interface Props {
+  label: string;
+  value: string;
+  href?: string;
+  hint?: string;
+  external?: boolean;
+}
+
+const { label, value, href, hint, external = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+<Tag
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class="contact-card"
+>
+  <div class="contact-icon">
+    <slot name="icon" />
+  </div>
+  <div style="flex:1;min-width:0;">
+    <p class="contact-label">{label}</p>
+    <p class="contact-value">{value}</p>
+    {hint && <p class="contact-hint">{hint}</p>}
+  </div>
+  {href && (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="contact-arrow"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+  )}
+</Tag>
+
+<style>
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: .875rem;
+    transition: var(--T);
+    text-decoration: none;
+    color: inherit;
+  }
+  a.contact-card:hover {
+    border-color: rgba(99,102,241,.4);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.4);
+  }
+  .contact-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: .625rem;
+    background: rgba(99,102,241,.12);
+    border: 1px solid rgba(99,102,241,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .contact-label {
+    font-size: .72rem;
+    font-weight: 700;
+    color: var(--txt3);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .2rem;
+  }
+  .contact-value {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--txt);
+    word-break: break-word;
+  }
+  .contact-hint {
+    font-size: .78rem;
+    color: var(--txt3);
+    margin-top: .15rem;
+  }
+  .contact-arrow {
+    margin-left: auto;
+    color: var(--txt3);
+    flex-shrink: 0;
+  }
+</style>
