@@ -6,7 +6,7 @@ This repository contains the source code for my personal portfolio website.
 
 - **Astro** (site framework)
 - **JavaScript** (client-side enhancements)
-- **Python** (scripts/utilities used in the repo)
+- **Python** (scripts/utilities used in the repo).
 
 ## Development
 
