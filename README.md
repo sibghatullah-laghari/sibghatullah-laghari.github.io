@@ -1,14 +1,14 @@
-# Sibghatullah Laghari — Portfolio
+# Sibghatullah Laghari — Portfolio:
 
 This repository contains the source code for my personal portfolio website.
 
-## Tech stack
+## Tech stack:
 
 - **Astro** (site framework)
 - **JavaScript** (client-side enhancements)
 - **Python** (scripts/utilities used in the repo).
 
-## Development
+## Development:
 
 > If you’re cloning this repo to run it locally, the exact scripts may vary based on what’s in `package.json`.
 
@@ -36,10 +36,10 @@ This repository contains the source code for my personal portfolio website.
    npm run preview
    ```
 
-## Deploy
+## Deploy:
 
 This site is intended to be deployed with **GitHub Pages**.
 
-## License
+## License:
 
 No license file is currently included in this repository. If you plan to reuse anything, please open an issue to ask for permission.
